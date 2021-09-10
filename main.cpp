@@ -1,10 +1,18 @@
 //
 // Created by Peter Cong on 9/6/21.
 //
-#include <iostream>
-#include "static_map.h"
+#include <cassert>
+#include "Static_map.hpp"
 
 int main()
 {
-    auto s_m = static_map{{1,2},{3,4}};
+    static_assert(make_static_map(1,2).size() == 1U);
+    static_assert(make_static_map(1,2,3,4,5,6).size() == 3U);
+    static_assert(make_static_map(1,2,3,4,5,6).at(1) == 2);
+    static_assert(make_static_map(1,2,3,4,5,6).at(3) == 4);
+    static_assert(make_static_map(1,2,3,4,5,6)[1] == 2);
+    static_assert(make_static_map(1,2,3,4,5,6)[2] == std::nullopt);
+    static_assert(make_static_map(1,2,3,4,5,6).at_or_default(1, 0) == 2);
+    static_assert(make_static_map(1,2,3,4,5,6).at_or_default(2, 0) == 0);
+    static_assert(make_static_map({1,2},{3,4}).size() == 2U);
 }
