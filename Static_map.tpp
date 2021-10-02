@@ -1,12 +1,24 @@
 #include <algorithm>
 #include <stdexcept>
 #include <initializer_list>
-#include "util.hpp"
-#include "helper.hpp"
+#include "./util.hpp"
+#include "./helper.hpp"
 
 template<typename Key, typename Value, std::size_t N>
 constexpr Static_map<Key, Value, N>::Static_map(Static_map::Data &&data)
 : _data(std::forward<Data&&>(data))
+{
+#ifdef SM_NO_DUPLICATE
+    if (has_dup_key())
+    {
+        throw std::invalid_argument("Duplicate keys detected, please check your input.");
+    }
+#endif
+}
+
+template<typename Key, typename Value, std::size_t N>
+constexpr Static_map<Key, Value, N>::Static_map(const Static_map::Data &data)
+: _data(data)
 {
 #ifdef SM_NO_DUPLICATE
     if (has_dup_key())
@@ -30,13 +42,8 @@ constexpr auto Static_map<Key, Value, N>::at(Key &&key) const
 template<typename Key, typename Value, std::size_t N>
 constexpr auto Static_map<Key, Value, N>::operator[](Key &&key) const noexcept -> std::optional<const Value>
 {
-#ifdef SM_NO_THROW
     auto it = std::ranges::find(_data, key, &Data::value_type::first);
     return it == _data.end() ? std::nullopt : std::optional<const Value>{it->second};
-#else
-    try { return at(std::forward<Key&&>(key)); }
-    catch (std::out_of_range&) { return std::nullopt; }
-#endif
 }
 
 template<typename Key, typename Value, std::size_t N>
