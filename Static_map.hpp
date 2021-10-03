@@ -8,10 +8,7 @@
 #include <array>
 #include <optional>
 
-///
-/// \tparam Key
-/// \tparam Value
-/// \tparam N
+/// Compile time key-value map that uses array<pair<Key,Value>,N> as the underlying structure.
 template<typename Key, typename Value, std::size_t N>
 struct Static_map {
     using Data = std::array<std::pair<Key, Value>, N>;
