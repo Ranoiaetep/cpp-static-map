@@ -4,6 +4,7 @@
 
 #include "Static_map.hpp"
 
+using namespace sm;
 static_assert(Static_map(std::array<std::pair<int,int>,3U>{
     std::pair{1,2},
     std::pair{3,4},

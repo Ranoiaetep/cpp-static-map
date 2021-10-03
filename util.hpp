@@ -7,18 +7,21 @@
 #include <functional>
 #include <ranges>
 
-template<std::ranges::input_range Range, typename Projection = std::identity>
-constexpr bool has_duplicate(Range &&range, Projection projection = {})
+namespace sm
 {
-    for (auto it = range.cbegin(); const auto &obj_1: range)
+    template<std::ranges::input_range Range, typename Projection = std::identity>
+    constexpr bool has_duplicate(Range &&range, Projection projection = {})
     {
-        for (const auto &obj_2: std::ranges::subrange(range.cbegin(), it++))
+        for (auto it = range.cbegin(); const auto &obj_1: range)
         {
-            if (std::invoke(projection, obj_1) == std::invoke(projection, obj_2))
+            for (const auto &obj_2: std::ranges::subrange(range.cbegin(), it++))
             {
-                return true;
+                if (std::invoke(projection, obj_1) == std::invoke(projection, obj_2))
+                {
+                    return true;
+                }
             }
         }
+        return false;
     }
-    return false;
 }
