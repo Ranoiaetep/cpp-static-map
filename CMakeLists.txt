@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 include_directories(.)
 
-add_executable(cpp_static_map main.cpp tests/make_static_map.cpp)
+add_executable(cpp_static_map main.cpp tests/make_static_map.cpp tests/static_map.cpp)
 
 #add_definitions(-DSM_NO_DUPLICATE -DSM_NO_THROW)
 
