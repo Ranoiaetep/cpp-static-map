@@ -5,6 +5,7 @@
 #include <string_view>
 #include "Static_map.hpp"
 
+using namespace sm;
 static_assert(make_static_map(1,2).size() == 1U);
 static_assert(make_static_map(1,2,3,4,5,6).size() == 3U);
 static_assert(make_static_map(1,2,3,4,5,6).at(1) == 2);
@@ -35,10 +36,11 @@ static_assert(make_static_map("One"sv,1,"Two"sv,2,"Three"sv,3).at_or_default("On
 static_assert(make_static_map("One"sv,1,"Two"sv,2,"Three"sv,3).at_or_default("Zero", 1) == 1);
 static_assert(make_static_map("One"sv,1,"Two"sv,2,"Three"sv,3).at_or_default("Zero") == 0);
 
-
 static_assert(make_static_map("1"sv, "One"sv).size() == 1U);
 static_assert(make_static_map("1"sv,"One"sv,"2"sv,"Two"sv,"3"sv,"Three"sv).size() == 3U);
 static_assert(make_static_map("1"sv,"One"sv,"2"sv,"Two"sv,"3"sv,"Three"sv).at("1"sv) == "One"sv);
+
+static_assert(make_static_map("1","One","2","Two","3","Three").at("1"sv) == "One"sv);
 
 static_assert(make_static_map({"1"sv,"One"sv},{"2"sv,"Two"sv}).size() == 2U);
 static_assert(make_static_map({"1"sv,"One"sv},{"2"sv,"Two"sv}).at("1"sv) == "One"sv);

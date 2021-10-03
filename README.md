@@ -13,16 +13,14 @@ Simply add the files in your source and `#include "@dir/Static_map.hpp"`, and re
 To generate a `Static_map` containing data: `{1,"One"},{2,"Two"},{3,"Three}`:
 
 ````c++
-constexpr auto map = make_static_map(1, "One"sv, 2, "Two"sv, 3, "Three"sv);
+constexpr auto map = sm::make_static_map(1, "One", 2, "Two", 3, "Three");
 ````
 
 To generate a `Static_map` where key and value are the same type, you can also do:
 
 ```c++
-constexpr auto map = make_static_map({"1"sv, "One"sv}, {"2"sv, "Two"sv}, {"3"sv, "Three"sv});
+constexpr auto map = sm::make_static_map({"1", "One"}, {"2", "Two"}, {"3", "Three"});
 ```
-
--   Note: `sv` is the literal for `std::string_view`. Any type that can be constructed as `constexpr` should work.
 
 Alternatively, you can first create an `std::array<std::pair<Key, Value>, N>` object manually, and it can be explicitly converted to `Static_map<Key, Value, N>`.
 
