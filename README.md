@@ -22,7 +22,7 @@ To generate a `Static_map` where key and value are the same type, you can also d
 constexpr auto map = sm::make_static_map({"1", "One"}, {"2", "Two"}, {"3", "Three"});
 ```
 
-Alternatively, you can first create an `std::array<std::pair<Key, Value>, N>` object manually, and it can be explicitly converted to `Static_map<Key, Value, N>`.
+Alternatively, you can first create an `Static_map<Key, Value, N>` explicitly from an `std::array<std::pair<Key, Value>, N>` object manually.
 
 ---
 
