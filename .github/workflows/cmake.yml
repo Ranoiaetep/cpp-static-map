@@ -21,8 +21,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Upgrade GCC
-      run: apt-get upgrade gcc
+    - name: Install GCC
+      # You may pin to the exact commit or the version.
+      # uses: egor-tensin/setup-gcc@d04208cef6e985db0830428975fc2ab3f28d89a1
+      uses: egor-tensin/setup-gcc@v1
+      with:
+        # GCC version to install
+        version: latest # optional, default is latest
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
