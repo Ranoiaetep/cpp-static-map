@@ -1,4 +1,4 @@
-![Requirement](https://img.shields.io/badge/requirements-C%2B%2B20-success)![CMake build](https://img.shields.io/github/workflow/status/Ranoiaetep/cpp-static-map/CMake?logo=github)![Codacy grade](https://img.shields.io/codacy/grade/17bfe802766f477b8bb0ffb275a783ec?label=codacy%20grade)
+![Requirement](https://img.shields.io/badge/requirements-C%2B%2B20-success) ![CMake build](https://img.shields.io/github/workflow/status/Ranoiaetep/cpp-static-map/CMake?logo=github) ![Codacy grade](https://img.shields.io/codacy/grade/17bfe802766f477b8bb0ffb275a783ec?label=codacy%20grade)
 
 # C++ Static Map
 
