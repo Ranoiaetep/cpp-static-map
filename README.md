@@ -2,6 +2,8 @@
 
 # C++ Static Map
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/17bfe802766f477b8bb0ffb275a783ec)](https://app.codacy.com/gh/Ranoiaetep/cpp-static-map?utm_source=github.com&utm_medium=referral&utm_content=Ranoiaetep/cpp-static-map&utm_campaign=Badge_Grade_Settings)
+
 Header-only compile time key-value map written in C++20.
 
 ## Getting Started
