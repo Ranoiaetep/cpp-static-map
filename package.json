@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "gcc": "https://bigsearcher.com/mirrors/gcc/releases/gcc-11.2.0/gcc-11.2.0.tar.gz"
+    "gcc": "git://gcc.gnu.org/git/gcc.git"
   }
 }
