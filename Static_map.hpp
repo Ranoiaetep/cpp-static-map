@@ -7,6 +7,7 @@
 #include <cstdint>
 #include <array>
 #include <optional>
+#include <ranges>
 
 namespace sm
 {
@@ -55,6 +56,16 @@ namespace sm
         /// \param default_value Default value to return if key was not found. Will return `Value{}` if not assigned.
         /// \return Paired value from given key, or a defaulted value if key was not found.
         constexpr auto at_or_default(Key &&key, Value default_value = Value{}) const noexcept;
+
+        ///
+        /// \return Iterator to the first pair.
+        constexpr auto begin() const noexcept
+        { return _data.cbegin(); }
+
+        ///
+        /// \return Iterator to the element after the last pair.
+        constexpr auto end() const noexcept
+        { return _data.cend(); }
 
     private:
         constexpr auto has_dup_key() const noexcept;
