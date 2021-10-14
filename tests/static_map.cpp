@@ -26,3 +26,5 @@ static_assert(static_cast<const std::array<std::pair<int,int>,3U>>(
     std::pair{1,2},
     std::pair{3,4},
     std::pair{5,6}});
+
+int main() {}

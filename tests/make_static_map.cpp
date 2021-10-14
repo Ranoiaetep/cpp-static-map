@@ -48,3 +48,5 @@ static_assert(make_static_map({"1"sv,"One"sv},{"2"sv,"Two"sv}).at("1") == "One")
 static_assert(make_static_map({"1"sv,"One"sv},{"2"sv,"Two"sv}).at_or_default("1", "One") == "One");
 static_assert(make_static_map({"1"sv,"One"sv},{"2"sv,"Two"sv}).at_or_default("0", "One") == "One");
 static_assert(make_static_map({"1"sv,"One"sv},{"2"sv,"Two"sv}).at_or_default("0") == "");
+
+int main() {}
