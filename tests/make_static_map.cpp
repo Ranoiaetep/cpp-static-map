@@ -3,7 +3,7 @@
 //
 
 #include <string_view>
-#include "Static_map.hpp"
+#include <Static_map.hpp>
 
 using namespace sm;
 static_assert(make_static_map(1,2).size() == 1U);

@@ -1,8 +1,7 @@
 //
 // Created by Peter Cong on 10/3/21.
 //
-
-#include "Static_map.hpp"
+#include <Static_map.hpp>
 
 using namespace sm;
 static_assert(Static_map(std::array<std::pair<int,int>,3U>{
