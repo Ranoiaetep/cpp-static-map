@@ -1,8 +1,13 @@
 cmake_minimum_required(VERSION 3.20)
-project(cpp_static_map)
+get_directory_property(hasParent PARENT_DIRECTORY)
+if(NOT hasParent)
+    project(cpp_static_map)
+endif()
 
-set(CMAKE_CXX_COMPILER "g++-11")
-set(CMAKE_CXX_STANDARD 20)
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    set(CMAKE_CXX_COMPILER g++-11)
+    set(CMAKE_CXX_STANDARD 20)
+endif()
 
 add_library(Static_map INTERFACE Static_map.hpp)
 target_include_directories(Static_map INTERFACE ./)
