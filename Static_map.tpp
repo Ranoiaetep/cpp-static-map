@@ -52,6 +52,12 @@ namespace sm
     }
 
     template<typename Key, typename Value, std::size_t N>
+    constexpr auto Static_map<Key, Value, N>::at_or_default(Key &&key) const noexcept
+    {
+        return at(std::forward<Key &&>(key)).value_or(Value{});
+    }
+
+    template<typename Key, typename Value, std::size_t N>
     constexpr auto Static_map<Key, Value, N>::at_or_default(Key &&key, Value default_value) const noexcept
     {
         return at(std::forward<Key &&>(key)).value_or(default_value);
