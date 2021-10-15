@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(cpp_static_map)
+if(NOT DEFINED ${CMAKE_PROJECT_NAME})
+    project(cpp_static_map)
+endif()
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     set(CMAKE_CXX_COMPILER g++-11)
