@@ -1,7 +1,6 @@
 //
 // Created by Peter Cong on 9/6/21.
 //
-#include <iostream>
 #include "Static_map.hpp"
 
 using namespace std::string_view_literals;
