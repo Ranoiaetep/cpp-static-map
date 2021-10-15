@@ -40,16 +40,16 @@ namespace sm
         constexpr auto size() const noexcept
         { return N; }
 
+        /// Return paired value in the format of `std::optional<const Value>`. Returns `std::nullopt` if key was not found.
+        /// \param key
+        /// \return Optional value paired from given key.
+        constexpr auto at(Key &&key) const noexcept -> std::optional<const Value>;
+
         /// Return paired value from given key. Throw if key was not found.
         /// \param key
         /// \return Paired value from given key.
         /// \Throw `std::out_of_range`
-        constexpr auto at(Key &&key) const;
-
-        /// Return paired value in the format of `std::optional<const Value>`. Returns `std::nullopt` if key was not found.
-        /// \param key
-        /// \return Optional value paired from given key.
-        constexpr auto operator[](Key &&key) const noexcept -> std::optional<const Value>;
+        constexpr auto operator[](Key &&key) const;
 
         /// Return paired value from given key. If key was not found a defaulted value will be returned.
         /// \param key

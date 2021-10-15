@@ -3,6 +3,8 @@
 #include <initializer_list>
 #include "./util.hpp"
 #include "./helper.hpp"
+#include "Static_map.hpp"
+
 
 namespace sm
 {
@@ -31,7 +33,15 @@ namespace sm
     }
 
     template<typename Key, typename Value, std::size_t N>
-    constexpr auto Static_map<Key, Value, N>::at(Key &&key) const
+    constexpr auto Static_map<Key, Value, N>::at(Key &&key) const noexcept  -> std::optional<const Value>
+    {
+        auto it = std::ranges::find(_data, key, &Data::value_type::first);
+        return it == _data.end() ? std::nullopt : std::optional<const Value>{it->second};
+
+    }
+
+    template<typename Key, typename Value, std::size_t N>
+    constexpr auto Static_map<Key, Value, N>::operator[](Key &&key) const
     {
         auto it = std::ranges::find(_data, key, &Data::value_type::first);
         if (it == _data.end())
@@ -42,16 +52,9 @@ namespace sm
     }
 
     template<typename Key, typename Value, std::size_t N>
-    constexpr auto Static_map<Key, Value, N>::operator[](Key &&key) const noexcept -> std::optional<const Value>
-    {
-        auto it = std::ranges::find(_data, key, &Data::value_type::first);
-        return it == _data.end() ? std::nullopt : std::optional<const Value>{it->second};
-    }
-
-    template<typename Key, typename Value, std::size_t N>
     constexpr auto Static_map<Key, Value, N>::at_or_default(Key &&key, Value default_value) const noexcept
     {
-        return operator[](std::forward<Key &&>(key)).value_or(default_value);
+        return at(std::forward<Key &&>(key)).value_or(default_value);
     }
 
     template<typename Key, typename Value, std::size_t N>

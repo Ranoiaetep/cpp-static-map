@@ -31,12 +31,12 @@ Alternatively, you can first create an `std::array<std::pair<Key, Value>, N>` ob
 
 There are three methods to retrieve value from the map with a given key:
 
-1. `Static_map.at(KEY)` it returns the pointed value. If key was not found it will throw `std::out_of_range`.
-2. `Static_map[KEY]` it returns an `std::optional<VALUE>`. If key was not found it will return an `std::nullopt`.
+1. `Static_map.at(KEY)` it returns an `std::optional<VALUE>`. If key was not found it will return an `std::nullopt`.
+2. `Static_map[KEY]` it returns the pointed value. If key was not found it will throw `std::out_of_range`.
 3. `Static_map.at_or_default(KEY, DEFAULT=VALUE{})` it returns the pointed value. If key was not found `DEFAULT` will be returned. If no default was given, the default constructed `VALUE` will be returned.
 
--   Note: The second option will always return an `std::optional`, whereas the other two will attempt to return the `VALUE` type directly.
--   Note: The first method would fail in compile time if key was not found, as it requires exception handling.
+-   Note: The first option will always return an `std::optional`, whereas the other two will attempt to return the `VALUE` type directly.
+-   Note: The second method would fail in compile time if key was not found, as it requires exception handling.
 
 ---
 
