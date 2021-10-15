@@ -1,8 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
-get_directory_property(hasParent PARENT_DIRECTORY)
-if(NOT hasParent)
-    project(cpp_static_map)
-endif()
+
+project(cpp_static_map)
 
 if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
     set(CMAKE_CXX_COMPILER g++-11)
