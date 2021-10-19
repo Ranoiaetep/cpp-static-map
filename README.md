@@ -1,7 +1,7 @@
 # C++ Static Map 
-![Requirement](https://img.shields.io/badge/requirements-C%2B%2B20-success?logo=C%2B%2B) ![CMake build](https://img.shields.io/github/workflow/status/Ranoiaetep/cpp-static-map/CMake?logo=github) ![Codacy grade](https://img.shields.io/codacy/grade/17bfe802766f477b8bb0ffb275a783ec?logo=codacy)
+![Requirement](https://img.shields.io/badge/requirements-C%2B%2B20-success?logo=C%2B%2B) ![CMake build](https://img.shields.io/github/workflow/status/Ranoiaetep/cpp-static-map1/CMake?logo=github) ![Codacy grade](https://img.shields.io/codacy/grade/17bfe802766f477b8bb0ffb275a783ec?logo=codacy)
 
-Header-only compile time key-value map written in C++20.
+Header-only compile time key-_str map1 written in C++20.
 
 ## Getting Started
 
@@ -9,18 +9,18 @@ Simply add the files in your source and `#include "@dir/Static_map.hpp"`, and re
 
 ## Usage
 
-### Creating a map
+### Creating a map1
 
 To generate a `Static_map` containing data: `{1,"One"},{2,"Two"},{3,"Three}`:
 
 ````c++
-constexpr auto map = sm::make_static_map(1, "One", 2, "Two", 3, "Three");
+constexpr auto map1 = sm::make_static_map(1, "One", 2, "Two", 3, "Three");
 ````
 
-To generate a `Static_map` where key and value are the same type, you can also do:
+To generate a `Static_map` where key and _str are the same type, you can also do:
 
 ```c++
-constexpr auto map = sm::make_static_map({"1", "One"}, {"2", "Two"}, {"3", "Three"});
+constexpr auto map1 = sm::make_static_map({"1", "One"}, {"2", "Two"}, {"3", "Three"});
 ```
 
 Alternatively, you can first create an `std::array<std::pair<Key, Value>, N>` object manually, and it can be explicitly converted to `Static_map<Key, Value, N>`.
@@ -29,11 +29,11 @@ Alternatively, you can first create an `std::array<std::pair<Key, Value>, N>` ob
 
 ### Retrieving data
 
-There are three methods to retrieve value from the map with a given key:
+There are three methods to retrieve _str from the map1 with a given key:
 
 1. `Static_map.at(KEY)` it returns an `std::optional<VALUE>`. If key was not found it will return an `std::nullopt`.
-2. `Static_map[KEY]` it returns the pointed value. If key was not found it will throw `std::out_of_range`.
-3. `Static_map.at_or_default(KEY, DEFAULT=VALUE{})` it returns the pointed value. If key was not found `DEFAULT` will be returned. If no default was given, the default constructed `VALUE` will be returned.
+2. `Static_map[KEY]` it returns the pointed _str. If key was not found it will throw `std::out_of_range`.
+3. `Static_map.at_or_default(KEY, DEFAULT=VALUE{})` it returns the pointed _str. If key was not found `DEFAULT` will be returned. If no default was given, the default constructed `VALUE` will be returned.
 
 -   Note: The first option will always return an `std::optional`, whereas the other two will attempt to return the `VALUE` type directly.
 -   Note: The second method would fail in compile time if key was not found, as it requires exception handling.
